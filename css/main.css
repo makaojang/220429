@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+*{margin: 0; padding: 0;}
+li{list-style: none;}
+a{text-decoration: none; color: #333;}
+body{color: #333;}
+
+/* 타블릿, 모바일용 */
+.xi-apps{display: none;}
+.m_nav{display: none;}
+/* header */
+header{
+    width: calc(100% - 100px);
+    margin: 0 auto;
+    height: 100px;
+    line-height: 100px;
+    background-color: tomato;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 9;
+}
+
+header h1 a img {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+
+}
+header .pc ul{
+    display: flex;
+}
+header .pc ul li a {
+    color: white;
+    padding: 0 30px;
+    display: block;
+}
+
+/* .main_visual */
+.main_visual {
+    height: 100vh;
+    /* position: relative; */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+/* position:relative와
+    position:absolute를
+    이용하여 .main_visual div를
+    main_visual에 수직 가운데 배치될 수 있도록 설정*/
+.main_visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.main_visual div{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    /* 수직가운데 정렬할때 자주 쓰이는 공식 (외우기) */
+    /* left: 50%;
+    transform: translate(-50%, -50%); */
+    text-align: center;
+    color: white;
+}
+
+.map{
+    background-color: rgb(255, 255, 255);
+    z-index: 9; /* position 값이 필수 */
+    position: relative;
+    margin-top: 100vh;
+    padding: 100px 0;
+}
+.map .cont{
+    max-width: 1280px;
+    width: 95%;
+    margin: 0 auto;
+    /* background-color: antiquewhite; */
+}
+.map .cont iframe {
+    width: 100%;
+}
+/* display:flex를 이용하여 dt와 dd 가로롤 나열
+위로 여백 30px 아래로 여백 40px
+dt 글자두께 두껍게, 우측으로 여백 10px
+dd한테 우측으로 30px */
+.map .cont div h4 {
+    font-size: 25px;
+}
+.map .cont div p {
+    font-size: 18px;
+    padding-top: 10px;
+}
+.map .cont div dl {
+    display: flex;
+    margin: 30px 0 40px;
+}
+.map .cont div dt {
+    font-weight: bold;
+    margin-right:10px;
+}
+.map .cont div dd {
+    margin-right: 30px;
+}
+
+
+@media screen and (max-width:1024px){
+    .pc{display: none;}
+    .xi-apps{
+        display: block;
+    }
+    .xi-apps{
+        display: block;
+        color: white;
+        line-height: 100px;
+        font-size: 30px;
+        margin-right: 20px;
+    }
+    .xi-apps span{
+        position: absolute;
+        left: -9999999999px;
+    }
+}/* 1024px 이하일 때 */
+
+@media screen and (max-width:640px) {
+    header{
+        width: calc(100% - 50px);}
+    .map .cont div h4 {
+        font-size: 20px;
+    }
+    .map .cont div p {
+        font-size: 16px;
+    }
+    .map .cont div dl{
+        flex-wrap: wrap;
+    }
+    .map .cont div dl dt {
+        width: 10%;
+    }
+    .map .cont div dl dd {
+        width: 80%;
+    }
+
+}
+/* 640px 이하 일때 */
